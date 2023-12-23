@@ -51,9 +51,11 @@ function drawFood() {
 }
 
 function generateFood() {
-    const x = Math.floor(Math.random() * gridSize) + 1;
-    const y = Math.floor(Math.random() * gridSize) + 1;
-    return {x, y};
+  let newFood;
+  do {
+    newFood = { x: Math.floor(Math.random() * gridSize) + 1, y: Math.floor(Math.random() * gridSize) + 1 };
+  } while (snake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
+  return newFood;
 }
 
 function move() {
@@ -175,7 +177,7 @@ function resetGame() {
     updateHighScore();
     stopGame();
     snake = [{x: 10, y: 10}];
-    food = generateFood();
+    food = generateFood(); 
     direction = 'right';
     gameSpeedDelay = 200;
     updateScore();
@@ -195,7 +197,7 @@ function stopGame() {
 
 function updateHighScore() {
     const currentScore = snake.length -1;
-    if (currentScore = currentScore) {
+    if (currentScore > highScore) {
         highScore = currentScore;
         highScoreText.textContent = highScore.toString().padStart(3, '0');
     }
