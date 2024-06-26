@@ -32,6 +32,6 @@ A retro-style [snake game](https://www.youtube.com/watch?v=uyhzCBEGaBY&t=1834s) 
 
 ## Improvements
 
-- For those those that are avid gamers such as myself I add the option to use W, A, S, D
-- I implemented Collision detection for the snake crossing over itself
-  - Part of that  prompted me to create logic so that if you're going in One Direction you can't immediately go in the opposite
+- Added the option to use W, A, S, D keys for controls, catering to avid gamers.
+- Implemented collision detection to manage the snake crossing over itself.
+  - Developed logic to prevent immediate reversal of direction for smoother gameplay.
